@@ -2,7 +2,7 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from ssigmaapi.flnd.v1 import vitess_pb2 as ssigmaapi_dot_flnd_dot_v1_dot_vitess__pb2
+from ssigmaapi.flnd.v1 import flnd_pb2 as ssigmaapi_dot_flnd_dot_v1_dot_flnd__pb2
 
 
 class VitessServiceV1Stub(object):
@@ -16,23 +16,23 @@ class VitessServiceV1Stub(object):
       channel: A grpc.Channel.
     """
     self.GetMessage = channel.unary_unary(
-        '/ssigmaapi.vitess.v1.VitessServiceV1/GetMessage',
+        '/ssigmaapi.flnd.v1.VitessServiceV1/GetMessage',
         request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-        response_deserializer=ssigmaapi_dot_flnd_dot_v1_dot_vitess__pb2.VitessMessage.FromString,
+        response_deserializer=ssigmaapi_dot_flnd_dot_v1_dot_flnd__pb2.VitessMessage.FromString,
         )
     self.CreateMessage = channel.unary_unary(
-        '/ssigmaapi.vitess.v1.VitessServiceV1/CreateMessage',
-        request_serializer=ssigmaapi_dot_flnd_dot_v1_dot_vitess__pb2.VitessMessage.SerializeToString,
+        '/ssigmaapi.flnd.v1.VitessServiceV1/CreateMessage',
+        request_serializer=ssigmaapi_dot_flnd_dot_v1_dot_flnd__pb2.VitessMessage.SerializeToString,
         response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
         )
     self.UpdateMessage = channel.unary_unary(
-        '/ssigmaapi.vitess.v1.VitessServiceV1/UpdateMessage',
-        request_serializer=ssigmaapi_dot_flnd_dot_v1_dot_vitess__pb2.VitessMessage.SerializeToString,
+        '/ssigmaapi.flnd.v1.VitessServiceV1/UpdateMessage',
+        request_serializer=ssigmaapi_dot_flnd_dot_v1_dot_flnd__pb2.VitessMessage.SerializeToString,
         response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
         )
     self.DeleteMessage = channel.unary_unary(
-        '/ssigmaapi.vitess.v1.VitessServiceV1/DeleteMessage',
-        request_serializer=ssigmaapi_dot_flnd_dot_v1_dot_vitess__pb2.VitessMessage.SerializeToString,
+        '/ssigmaapi.flnd.v1.VitessServiceV1/DeleteMessage',
+        request_serializer=ssigmaapi_dot_flnd_dot_v1_dot_flnd__pb2.VitessMessage.SerializeToString,
         response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
         )
 
@@ -75,24 +75,24 @@ def add_VitessServiceV1Servicer_to_server(servicer, server):
       'GetMessage': grpc.unary_unary_rpc_method_handler(
           servicer.GetMessage,
           request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-          response_serializer=ssigmaapi_dot_flnd_dot_v1_dot_vitess__pb2.VitessMessage.SerializeToString,
+          response_serializer=ssigmaapi_dot_flnd_dot_v1_dot_flnd__pb2.VitessMessage.SerializeToString,
       ),
       'CreateMessage': grpc.unary_unary_rpc_method_handler(
           servicer.CreateMessage,
-          request_deserializer=ssigmaapi_dot_flnd_dot_v1_dot_vitess__pb2.VitessMessage.FromString,
+          request_deserializer=ssigmaapi_dot_flnd_dot_v1_dot_flnd__pb2.VitessMessage.FromString,
           response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
       ),
       'UpdateMessage': grpc.unary_unary_rpc_method_handler(
           servicer.UpdateMessage,
-          request_deserializer=ssigmaapi_dot_flnd_dot_v1_dot_vitess__pb2.VitessMessage.FromString,
+          request_deserializer=ssigmaapi_dot_flnd_dot_v1_dot_flnd__pb2.VitessMessage.FromString,
           response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
       ),
       'DeleteMessage': grpc.unary_unary_rpc_method_handler(
           servicer.DeleteMessage,
-          request_deserializer=ssigmaapi_dot_flnd_dot_v1_dot_vitess__pb2.VitessMessage.FromString,
+          request_deserializer=ssigmaapi_dot_flnd_dot_v1_dot_flnd__pb2.VitessMessage.FromString,
           response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'ssigmaapi.vitess.v1.VitessServiceV1', rpc_method_handlers)
+      'ssigmaapi.flnd.v1.VitessServiceV1', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))
